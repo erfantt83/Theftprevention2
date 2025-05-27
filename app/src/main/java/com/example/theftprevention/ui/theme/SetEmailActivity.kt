@@ -15,13 +15,13 @@ class SetEmailActivity : AppCompatActivity() {
         val editEmail = findViewById<EditText>(R.id.editEmail)
         val btnSave = findViewById<Button>(R.id.btnSaveEmail)
 
-        val prefs = getSharedPreferences("settings", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         editEmail.setText(prefs.getString("recipient_email", ""))
 
         btnSave.setOnClickListener {
             val email = editEmail.text.toString().trim()
             if (email.contains("@") && email.contains(".")) {
-                prefs.edit().putString("recipient_email", email).apply()
+                prefs.edit().putString("email", email).apply()
                 Toast.makeText(this, "ایمیل ذخیره شد", Toast.LENGTH_SHORT).show()
                 finish()
             } else {

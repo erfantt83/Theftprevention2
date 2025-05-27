@@ -27,7 +27,7 @@ class GmailSender {
 
         try {
             val message = MimeMessage(session)
-            message.setFrom(InternetAddress(sender))
+            message.setFrom(InternetAddress(user))
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipients))
             message.subject = subject
             message.setText(body)
